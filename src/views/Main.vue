@@ -2,7 +2,7 @@
     <div id="main" class="container">
         <div class="header">
             <div class="nav-container">
-                <router-link tag="div" to="/means" class="icon">
+                <router-link tag="div" to="/means/1" class="icon">
                     <img src="../assets/images/icon.jpg" width="40" height="auto">
                 </router-link>
                 <div class="title">
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <router-view></router-view>
+        <router-view :key="$route.path"></router-view>
         <div class="footer">
             <div class="menu-container">
                 <ul class="menu-list">
@@ -58,7 +58,16 @@ export default {
         }
     },
     methods:{
-        
+        activeNav(){
+            this.nav.forEach(v=>{
+                if(v.route === this.$route.path){
+                    this.active = v.id;
+                } 
+            })
+        }
+    },
+    created(){
+        this.activeNav()
     }
 }
 </script>

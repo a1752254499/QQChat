@@ -106,6 +106,7 @@ export default {
         }
     },
     methods:{
+        //新消息默认底部
         handle:function(){
             var chat = {};
             chat.name = this.name;
@@ -120,8 +121,9 @@ export default {
         },
         back:function(){
             this.$router.go(-1);
-        }
+        },
     },
+    //进消息刷新到底部
     mounted(){
         setTimeout(
             this.$nextTick(()=>{

@@ -8,13 +8,19 @@
         <div class="form-container">
             <h3 class="title">用户注册</h3>
             <form>
-                <div class="user">
+                <div class="name">
                     <span>名称</span>
+                    <input type="text" autocomplete='off' required v-model="name" @input.prevent="isName()">
+                    <span class="occupy" v-if="nameOccupy">超出长度</span>
+                    <i class="yes fa fa-check" aria-hidden="true" v-if="isname"></i>
+                </div>
+                <div class="user">
+                    <span>账号</span>
                     <input type="text" autocomplete='off' required v-model="user" @input.prevent="isUser()">
                     <span class="occupy" v-if="userOccupy">已存在</span>
                     <i class="yes fa fa-check" aria-hidden="true" v-if="isuser"></i>
                 </div>
-                <div class="user">
+                <div class="email">
                     <span>邮箱</span>
                     <input type="email" autocomplete='off' required v-model="email" @input.prevent="isEmail()">
                     <span class="occupy" v-if="emailOccupy">已存在</span>
@@ -37,12 +43,15 @@
 export default {
     data(){
         return{
+            name:"",
             user:"",
             email:"",
             pwd:"",
+            isname:false, //名称是否可用
             isuser:false, //用户名是否可用
             isemail:false, //邮箱是否可用
             invalid:false, //判断邮箱是否符合
+            nameOccupy:false, //名称是否超出
             userOccupy:false, //用户名是否存在
             emailOccupy:false,  //邮箱是否存在
             eye:false, //显示密码
@@ -67,6 +76,19 @@ export default {
                 this.eye = true
                 this.inputType = 'text'
                 this.icon = 'fa-eye'
+            }
+        },
+        //判断名称
+        isName:function(){
+            if(this.name.length <= 8){
+                this.isname = true
+                this.nameOccupy =false
+            }else{
+                this.isname = false
+                this.nameOccupy =true
+            }
+            if(this.name.length <= 0){
+                this.isname = false
             }
         },
         //判断用户名
@@ -104,13 +126,13 @@ export default {
             this.isOk()
         },
         isOk:function(){
-            if(this.isuser && this.isemail && this.pwd.length > 5){
+            if(this.isname && this.ispwd){
                 this.isok = true
             }else{
                 this.isok = false
             }
         }
-    }
+    },
 }
 </script>
 

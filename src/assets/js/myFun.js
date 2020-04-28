@@ -38,5 +38,30 @@ export default{
         }else{
             return oY+'-'+oM+'-'+oD
         }
+    },
+    //详细时间
+    detialTime(e){
+        let old = new Date(e);
+        //消息时间
+        let Y = old.getFullYear()
+        let M = old.getMonth()+1
+        let D = old.getDate()
+        let d = old.getTime()
+        let h = old.getHours()
+        let m = old.getMinutes()
+        let s = old.getSeconds()
+        if(M < 10){
+            M = '0' + M
+        }
+        if(h < 10){
+            h = '0' + h
+        }
+        if(m < 10){
+            m = '0' + m
+        }
+        if(s < 10){
+            s = '0' + s
+        }
+        return Y+'-'+M+'-'+D+' '+h+':'+m+':'+s;
     }
 }

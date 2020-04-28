@@ -11,10 +11,15 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "luxon": "^1.23.0",
     "swiper": "^5.3.8",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-router": "^3.0.1"
+    "vue-cropper-h5": "^1.2.0",
+    "vue-datetime": "^1.0.0-beta.11",
+    "vue-pickers": "^2.4.1",
+    "vue-router": "^3.0.1",
+    "weekstart": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

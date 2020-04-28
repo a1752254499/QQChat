@@ -8,13 +8,13 @@
         <div class="form-container">
             <form>
                 <div class="user">
-                    <input id="user" type="text" placeholder="用户名/邮箱" autocomplete='off' required  v-model="user" @blur.prevent="getUser"/>
+                    <input id="user" type="text" placeholder="账号/邮箱" autocomplete='off' required  v-model="user" @blur.prevent="getUser"/>
                 </div>
                 <div class="password">
                     <i class="fa" :class="icon" aria-hidden="true" @click="showPassword"></i>
                     <input id="pwd" :type="inputType" placeholder="输入密码" autocomplete='off' required v-model="pwd" @blur.prevent="getPwd"/>
                 </div>
-                <button @click.prevent="login" :class="{active:user.length != 0 && pwd.length != 0}">
+                <button @click.prevent="testFun" :class="{active:user.length != 0 && pwd.length != 0}">
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </button>
             </form>
@@ -36,7 +36,8 @@ export default {
             pwd:"",
             eye:false,
             icon:'fa-eye-slash',
-            inputType:'password'
+            inputType:'password',
+            mail:'2353348188@qq.com'
         }
     },
     methods:{
@@ -52,9 +53,10 @@ export default {
             }
         },
         //测试
-        async testFun(){
-            const res = await this.axios.get('api/list')
-            console.log(res)
+        testFun(){
+            // const res = await this.$http.post('/mail',this.mail)
+            this.$router.push('/main/news')
+            // console.log('成功')
         },
         //获取用户名
         getUser:function(){
@@ -72,6 +74,9 @@ export default {
     },
     mounted(){
         
+    },
+    created(){
+        // this.testFun()
     }
 }
 </script>

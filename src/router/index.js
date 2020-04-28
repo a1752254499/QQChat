@@ -6,9 +6,8 @@ import Main from '../views/Main.vue'
 import Char from '../views/Char.vue'
 import Means from '../views/Means.vue'
 import Search from '../views/Search.vue'
-
+import UserDetials from '../views/UserDetials.vue'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -50,14 +49,20 @@ export default new Router({
         props:true
       },
       {
-        path: '/means',
+        path: '/means/:id',
         name: 'Means',
         component: Means,
+        props:true
       },
       {
         path: '/search',
         name: 'Search',
         component: Search,
+      },
+      {
+        path: '/user',
+        name: 'User',
+        component:UserDetials,
       }
   ]
 })

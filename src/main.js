@@ -8,8 +8,18 @@ import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 
 Vue.config.productionTip = false
-import axios from 'axios'
-Vue.prototype.axios = axios
+
+import { Datetime } from 'vue-datetime'
+import 'vue-datetime/dist/vue-datetime.css'
+Vue.use(Datetime)
+Vue.component('datetime', Datetime);
+
+import H5Cropper from 'vue-cropper-h5'
+Vue.use(H5Cropper)
+
+import http from "./http"
+Vue.prototype.$http = http;
+
 router.afterEach((to,from,next) => {
     window.scrollTo(0,0);
 })

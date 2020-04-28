@@ -151,15 +151,15 @@ a,a:hover{
 }
 #char .footer .send-container{
     width:100%;
-    padding:20px;
+    padding:15px;
 }
 #char .footer form{
     display: flex;
 }
 #char .footer form input{
     flex:1;
-    padding:10px 16px;
-    font-size:16px;
+    padding:6px 16px;
+    font-size:14px;
     caret-color:#00cafc;
     margin-right:5px;
     outline:none;
@@ -167,7 +167,7 @@ a,a:hover{
     border-radius:50px;
 }
 #char .footer form button{
-    padding:10px 16px;
+    padding:6px 16px;
     border:0;
     font-size:16px;
     outline:none;

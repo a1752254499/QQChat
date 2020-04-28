@@ -4,23 +4,23 @@
             <div class="search">
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <input type="text" placeholder="搜索用户/群组" placeholder-style="color:#b0b3bf;" v-model="value" @input.prevent="search()">
-                <span>取消</span>
+                <span @click="back">取消</span>
             </div>
         </div>
         <div class="user-container">
-            <h3 class="title">用户</h3>
+            <h3 class="title" v-if="userarr.length>0">用户</h3>
             <ul class="user-list">
-                <li class="user-item" v-for="n in 5" :key="n">
-                    <div class="left">
-                        <img src="../assets/images/9.jpg" width="48" height="48">
-                    </div>
+                <li class="user-item" v-for="(items,i) in userarr" :key="i">
+                    <router-link tag="div" :to="`/means/${items.id}`" class="left">
+                        <img :src="items.icon" width="48" height="48">
+                    </router-link>
                     <div class="mid">
-                        <p class="name">QQ小狗</p>
-                        <p class="email">1752254499@qq.com</p>
+                        <p class="name" v-html="items.name"></p>
+                        <p class="email" v-html="'Char:'+items.char"></p>
                     </div>
                     <div class="right">
-                        <span class="send">发消息</span>
-                        <span class="add active">加好友</span>
+                        <span class="send" v-if="items.tip==1">发消息</span>
+                        <span class="add" v-if="items.tip==0">加好友</span>
                     </div>
                 </li>
             </ul>
@@ -55,6 +55,11 @@ export default {
         }
     },
     methods:{
+        //返回上一页
+        back(){
+            this.$router.go(-1)
+        },
+        //获取关键字
         search:function(){
             this.userarr = []
             let Svalue = this.value
@@ -62,25 +67,32 @@ export default {
                 this.searchUser(Svalue)
             }
         },
+        //匹配关键字用户
         searchUser:function(e){
             let arr = data.news()
+            let exp = eval("/"+e+"/g")
             arr.forEach(v=>{
                 let isName = v.name.indexOf(e)
-                let isEmail = v.email.indexOf(e)
-                if(parseInt(isName) !== -1 || parseInt(isEmail) !== -1){
+                let isChar = v.char.indexOf(e)
+                if(parseInt(isName) !== -1 || parseInt(isChar) !== -1){
+                    this.isFriend(v)
+                    v.name = v.name.replace(exp,"<span style='color:#3EBBE6;'>"+e+"</span>")
+                    v.char = v.char.replace(exp,"<span style='color:#3EBBE6;'>"+e+"</span>")
                     this.userarr.push(v)
                 }
-                // if(v.name.indexOf(e) != -1 || v.email.indexOf(e) != -1){
-                //     this.userarr.push(v)
-                // }
             })
-            // for(let i = 0;i < arr.length;i++){
-            //     console.log(arr[i].name.indexOf(e) != -1)
-            //     if(arr[i].name.indexOf(e) != -1 || arr[i].email.indexOf(e) != -1){
-            //         this.userarr.push(arr[i])
-            //     }
-            // }
-            console.log(this.userarr)
+        },
+        //判断是否为好友
+        isFriend:function(e){
+            let tip = 0
+            let arr = data.isFriend()
+            arr.forEach(v=>{
+                if(v.firend == e.id){
+                    tip = 1;
+                }
+            })
+            e.tip = tip
+            // console.log(tip)
         }
     }
 }

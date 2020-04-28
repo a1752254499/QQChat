@@ -63,11 +63,7 @@ a,a:hover{
 #search .user-container .user-list .user-item .mid .email{
     font-size:12px;
 }
-#search .user-container .user-list .user-item .right .active{
-    display: block;
-}
 #search .user-container .user-list .user-item .right span{
-    display: none;
     padding:3px 8px;
     border-radius:50px;
 }
