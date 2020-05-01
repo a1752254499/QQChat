@@ -3,9 +3,9 @@
         <div class="header">
             <div class="nav-container">
                 <div class="back">
-                    <router-link tag="a" to="/main/news">
+                    <a @click.prevent="back">
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </router-link>
+                    </a>
                 </div>
                 <div class="title">
                     <span>带带大师兄</span>
@@ -22,10 +22,10 @@
             <p class="time">下午3:36</p>
             <div :class="items.name" v-for="(items,i) in chats" :key="i">
                 <img class="icon" :src="items.icon" width="40" height="40">
-                <p class="comment" v-if="items.commentType == 0" v-html="items.comment">
+                <p class="comment" v-if="items.commentType === 0" v-html="items.comment">
                     {{items.comment}}
                 </p>
-                <p class="comment-img" v-if="items.commentType == 1">
+                <p class="comment-img" v-if="items.commentType === 1">
                     <img :src="items.comment">
                 </p>
             </div>

@@ -13,7 +13,7 @@
         </div>
         <div class="people">
             <ul class="people-list">
-                <li class="people-item">
+                <li class="people-item" v-for="n in 4" :key="n">
                     <div class="top">
                         <div class="left">
                             <a href="">拒绝</a>
@@ -30,71 +30,7 @@
                         <span class="time">12:43</span>
                     </div>
                     <div class="bottom">
-                        <span>留言:</span>
-                        <input type="text">
-                    </div>
-                </li>
-                <li class="people-item">
-                    <div class="top">
-                        <div class="left">
-                            <a href="">拒绝</a>
-                        </div>
-                        <div class="mid">
-                            <img src="../assets/images/9.jpg" width="80" height="80">
-                        </div>
-                        <div class="right">
-                            <a href="">同意</a>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <p class="name">带带大师兄</p>
-                        <span class="time">12:43</span>
-                    </div>
-                    <div class="bottom">
-                        <span>留言:</span>
-                        <input type="text">
-                    </div>
-                </li>
-                <li class="people-item">
-                    <div class="top">
-                        <div class="left">
-                            <a href="">拒绝</a>
-                        </div>
-                        <div class="mid">
-                            <img src="../assets/images/9.jpg" width="80" height="80">
-                        </div>
-                        <div class="right">
-                            <a href="">同意</a>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <p class="name">带带大师兄</p>
-                        <span class="time">12:43</span>
-                    </div>
-                    <div class="bottom">
-                        <span>留言:</span>
-                        <input type="text">
-                    </div>
-                </li>
-                <li class="people-item">
-                    <div class="top">
-                        <div class="left">
-                            <a href="">拒绝</a>
-                        </div>
-                        <div class="mid">
-                            <img src="../assets/images/9.jpg" width="80" height="80">
-                        </div>
-                        <div class="right">
-                            <a href="">同意</a>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <p class="name">带带大师兄</p>
-                        <span class="time">12:43</span>
-                    </div>
-                    <div class="bottom">
-                        <span>留言:</span>
-                        <input type="text">
+                        <p>留言 : 请求加为好友</p>
                     </div>
                 </li>
             </ul>

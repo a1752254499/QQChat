@@ -29,12 +29,13 @@
                         <span>群成员</span>
                     </div>
                     <div class="right">
-                        <span>成员管理<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span @click.prevent="Manage">成员管理<i class="fa fa-angle-right" aria-hidden="true"></i></span>
                     </div>
                 </div>
                 <div class="center">
                     <ul class="meb-list">
-                        <li class="meb-item" :class="{db:index > 3}" v-for="(items,index) in groupMember" :key="index">
+                        <li class="meb-item" v-for="(items,index) in groupMember" :key="index">
+                            <i v-if="items.id != 1" @click.prevent="delUser(index)" :class="{active:del}" class="fa fa-times del" aria-hidden="true"></i>
                             <img :src="items.avatar" width="52" height="52">
                             <span>{{items.username}}</span>
                         </li>
@@ -115,6 +116,8 @@ export default {
             modifyTitle:'',
             data:'修改内容',
             popup:false,
+            del:false,
+            delData:'',
             groupAvatar:'/static/images/10.jpg',
             groupName:'傻逼群',
             groupTime:'2020-04-30',
@@ -122,42 +125,52 @@ export default {
             groupCard:'QQ小八',
             groupMember:[
                 {
+                    id:1,
                     avatar:'/static/images/1.jpg',
                     username:'傻🐕',
                 },
                 {
+                    id:2,
                     avatar:'/static/images/2.jpg',
                     username:'岛式老八',
                 },
                 {
+                    id:3,
                     avatar:'/static/images/3.jpg',
                     username:'带带大师兄',
                 },
                 {
+                    id:4,
                     avatar:'/static/images/4.jpg',
                     username:'金牌厨师',
                 },
                 {
+                    id:5,
                     avatar:'/static/images/5.jpg',
                     username:'抽象带蓝子',
                 },
                 {
+                    id:6,
                     avatar:'/static/images/6.jpg',
                     username:'RNG污渍',
                 },
                 {
+                    id:7,
                     avatar:'/static/images/7.jpg',
                     username:'退役辅助山泥若',
                 },
                 {
+                    id:8,
                     avatar:'/static/images/8.jpg',
                     username:'斗鱼张顺飞',
                 },
                 {
+                    id:9,
                     avatar:'/static/images/9.jpg',
                     username:'QQ机器狗',
                 },
                 {
+                    id:10,
                     avatar:'/static/images/10.jpg',
                     username:'QQ小冰',
                 },
@@ -182,6 +195,16 @@ export default {
         EjectSubmit:function(){
             this.Eject()
         },
+        Manage:function(){
+            if(this.del){
+                this.del = false
+            }else{
+                this.del = true
+            }
+        },
+        delUser:function(e){
+            this.groupMember.splice(e,1)
+        }
     }
 }
 </script>

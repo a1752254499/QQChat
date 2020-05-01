@@ -10,14 +10,14 @@
         </router-link>
         <div class="carve"></div>
         <div class="nav">
-            <div class="nav-item" :class="{active:active == i}" v-for="(items,i) in list" :key="i" @click="$refs.list.$swiper.slideTo(i)">
+            <div class="nav-item" :class="{active:active === i}" v-for="(items,i) in list" :key="i" @click="$refs.list.$swiper.slideTo(i)">
                 <div class="nav-link">{{items}}</div>
             </div>
         </div>
         <swiper ref="list" @slide-change="() => active = $refs.list.$swiper.realIndex" :options="{autoHeight: true}">
             <swiper-slide>
                 <div class="myfriend">
-                    <router-link tag="div" to="/char" class="friend">
+                    <router-link tag="div" to="/char/1" class="friend">
                         <div class="left">
                             <img src="../assets/images/1.jpg" width="40px" height="40px">
                         </div>
@@ -48,7 +48,7 @@
             </swiper-slide>
             <swiper-slide>
                 <div class="mygroup">
-                    <router-link tag="div" to="/groupdetails" class="group" v-for="n in 2" :key="n">
+                    <router-link tag="div" to="/groupdetails" class="group" v-for="n in 4" :key="n">
                         <div class="left">
                             <img src="../assets/images/9.jpg" width="40px" height="40px">
                         </div>

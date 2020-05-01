@@ -126,16 +126,6 @@ export default {
                 this.invalid=false
             }
         },
-        //获取用户名
-        getUser:function(){
-            this.user
-            this.isOk()
-        },
-        //获取密码
-        getPwd:function(){
-            this.pwd
-            this.isOk()
-        },
         isOk:function(){
             if(this.isname && this.isemail && this.isuser){
                 this.isok = true

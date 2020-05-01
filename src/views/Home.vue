@@ -53,19 +53,11 @@ export default {
             }
         },
         //测试
-        testFun(){
-            // const res = await this.$http.post('/mail',this.mail)
-            this.$router.push('/main/news')
-            // console.log('成功')
-        },
-        //获取用户名
-        getUser:function(){
-            this.user
-        },
-        //获取密码
-        getPwd:function(){
-            this.pwd
-        },
+        // testFun(){
+        //     // const res = await this.$http.post('/mail',this.mail)
+        //     this.$router.push('/main/news')
+        //     // console.log('成功')
+        // },
         login:function(){
             if(this.user && this.pwd){
                 console.log('yes')

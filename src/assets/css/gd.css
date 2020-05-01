@@ -105,12 +105,27 @@ a,a:hover{
     width:100%;
 }
 #gd .group-meb .center .meb-list .meb-item{
+    position: relative;
     padding-top:10px;
     width:20%;
     text-align: center;
 }
 #gd .group-meb .center .meb-list .db{
     display: none;
+}
+#gd .group-meb .center .meb-list .meb-item .del{
+    display: none;
+    position: absolute;
+    background:#DC143C;
+    color:#fff;
+    width:18px;
+    height:18px;
+    border-radius:100%;
+    right:0;
+    top:0;
+}
+#gd .group-meb .center .meb-list .meb-item .active{
+    display: block;
 }
 #gd .group-meb .center .meb-list .meb-item img{
     border-radius:10px;

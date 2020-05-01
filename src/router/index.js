@@ -26,9 +26,9 @@ const router = new VueRouter({
             name:'main',
             component:Main,
             children:[
-                {path:'/main/news',component:() => import(/* webpackChunkName: "about" */ '../views/News.vue')},
-                {path:'/main/link',component:() => import(/* webpackChunkName: "about" */ '../views/Link.vue')},
-                {path:'/main/trends',component:() => import(/* webpackChunkName: "about" */ '../views/Trends.vue')}
+                {path:'/',component:() => import(/* webpackChunkName: "about" */ '../views/News.vue')},
+                {path:'/link',component:() => import(/* webpackChunkName: "about" */ '../views/Link.vue')},
+                {path:'/trends',component:() => import(/* webpackChunkName: "about" */ '../views/Trends.vue')}
             ]
         },
         {

@@ -39,19 +39,19 @@ export default {
                 {
                     id:0,
                     name:'消息',
-                    route:'/main/news',
+                    route:'/',
                     icon:'fa-commenting'
                 },
                 {
                     id:1,
                     name:'联系人',
-                    route:'/main/link',
+                    route:'/link',
                     icon:'fa-user-circle'
                 },
                 {
                     id:2,
                     name:'动态',
-                    route:'/main/trends',
+                    route:'/trends',
                     icon:'fa-globe'
                 },
             ]

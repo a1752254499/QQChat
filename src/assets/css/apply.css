@@ -98,21 +98,13 @@ a,a:hover{
 }
 #apply .people .people-list .people-item .bottom{
     width:100%;
-    position: relative;
     margin-top:20px;
 }
-#apply .people .people-list .people-item .bottom span{
-    position: absolute;
-    left:14px;
-    top:8px;
-    color:#666;
-    font-size:14px;
-}
-#apply .people .people-list .people-item .bottom input{
+#apply .people .people-list .people-item .bottom p{
     width:100%;
-    padding:10px 10px 10px 50px;
+    padding:10px 10px 10px 10px;
+    font-size:14px;
     background:#f5f6ff;
-    border:0;
-    outline: none;
+    color:#666;
     border-radius:10px;
 }
