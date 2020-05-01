@@ -9,7 +9,7 @@
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                 </div>
                 <div class="end"></div>
-                <router-link tag="div" to="/user" class="me">
+                <router-link tag="div" to="/means/userdetails/1" class="me">
                     <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                 </router-link>
             </div>

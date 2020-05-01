@@ -36,8 +36,8 @@
                         <p class="name">铜锣湾</p>
                     </div>
                     <div class="right">
-                        <span class="send active">发消息</span>
-                        <span class="add">加群组</span>
+                        <span class="send active">进入群</span>
+                        <span class="add">加入群</span>
                     </div>
                 </li>
             </ul>

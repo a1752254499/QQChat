@@ -8,6 +8,7 @@
 }
 #link .friends{
     display: flex;
+    align-items:center;
     padding:20px;
     background:#fff;
 }
@@ -16,6 +17,18 @@
     font-size:18px;
     color:#000;
     font-weight:500;
+}
+#link .friends .apply{
+    display: inline-block;
+    font-size:12px;
+    line-height:20px;
+    width: 20px;
+    height: 20px;
+    text-align:center;
+    margin-right:10px;
+    background:#f74c31;
+    color:#fff;
+    border-radius:100%;
 }
 #link .friends i{
     line-height:24px;

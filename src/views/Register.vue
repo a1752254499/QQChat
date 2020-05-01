@@ -18,6 +18,7 @@
                     <span>账号</span>
                     <input type="text" autocomplete='off' required v-model="user" @input.prevent="isUser()">
                     <span class="occupy" v-if="userOccupy">已存在</span>
+                    <span class="invalid" v-if="userLength">5-10位</span>
                     <i class="yes fa fa-check" aria-hidden="true" v-if="isuser"></i>
                 </div>
                 <div class="email">
@@ -51,6 +52,7 @@ export default {
             isuser:false, //用户名是否可用
             isemail:false, //邮箱是否可用
             invalid:false, //判断邮箱是否符合
+            userLength:false, //账号是否符合
             nameOccupy:false, //名称是否超出
             userOccupy:false, //用户名是否存在
             emailOccupy:false,  //邮箱是否存在
@@ -91,12 +93,20 @@ export default {
                 this.isname = false
             }
         },
-        //判断用户名
+        //判断账号
         isUser:function(){
+            let reg = /^[a-zA-Z0-9]{5,10}$/;
             if(this.user.length > 0){
-                this.isuser = true
+                if(reg.test(this.user)){
+                    this.isuser = true
+                    this.userLength = false
+                }else{
+                    this.isuser = false
+                    this.userLength = true
+                }
             }else{
                 this.isuser = false
+                this.userLength = false
             }
         },
         //判断邮箱
@@ -106,6 +116,7 @@ export default {
                 if(reg.test(this.email)){
                     this.isemail=true
                     this.invalid=false
+                    this.isOk()
                 }else{
                     this.isemail=false
                     this.invalid=true
@@ -126,7 +137,7 @@ export default {
             this.isOk()
         },
         isOk:function(){
-            if(this.isname && this.ispwd){
+            if(this.isname && this.isemail && this.isuser){
                 this.isok = true
             }else{
                 this.isok = false

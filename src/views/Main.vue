@@ -8,9 +8,9 @@
                 <div class="title">
                     <span :class="{active:active == i}" v-for="(item,i) in title" :key="i">{{item}}</span>
                 </div>
-                <div class="add">
+                <router-link tag="div" to="/found" class="add">
                     
-                </div>
+                </router-link>
             </div>
         </div>
         <router-view :key="$route.path"></router-view>

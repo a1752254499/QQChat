@@ -1,7 +1,7 @@
 <template>
     <div id="news" class="main">
         <div class="search">
-            <p @click.prevent="Search()"><i class="fa fa-search" aria-hidden="true"></i>搜索</p>
+            <router-link tag="p" to="/search"><i class="fa fa-search" aria-hidden="true"></i>搜索</router-link>
         </div>
         <div class="news-container">
             <ul class="news-list">
@@ -38,6 +38,7 @@ export default {
         this.getNews()
     },
     methods:{
+        //格式化时间
         changeTime:function(date){
             return myFun.dateTime(date)
         },
@@ -45,9 +46,6 @@ export default {
             this.news = data.news()
             // console.log(this.news)
         },
-        Search:function(){
-            this.$router.push({ path:'/search'})
-        }
     }
 }
 </script>

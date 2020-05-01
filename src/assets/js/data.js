@@ -134,5 +134,5 @@ export default{
             },
         ]
         return isfriend
-    }
+    },
 }

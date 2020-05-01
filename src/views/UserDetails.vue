@@ -5,7 +5,7 @@
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
             </div>
             <div class="mid">
-                <span>详细</span>
+                <span>用户信息</span>
             </div>
             <div class="right">
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -24,6 +24,16 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
             </div>
+            <div class="user">
+                <div class="left">
+                    <span>账号</span>
+                </div>
+                <div class="mid">
+                    <span>{{this.user}}</span>
+                </div>
+                <div class="right">
+                </div>
+            </div>
             <div @click.prevent="Eject('签名',sign,false)" class="sign">
                 <div class="left">
                     <span>签名</span>
@@ -37,7 +47,7 @@
             </div>
             <div class="regi">
                 <div class="left">
-                    <span>注册</span>
+                    <span>注册时间</span>
                 </div>
                 <div class="mid">
                     <span>{{ChangeTime(this.regist)}}</span>
@@ -162,9 +172,15 @@ import myFun from '../assets/js/myFun';
       },
   ]
 export default {
+    props:{
+        id:{
+            required:true
+        }
+    },
     data(){
         return{
             icon:'/static/images/9.jpg', //头像
+            user:'a585462',
             sign:'一日三餐没烦恼,今天就吃老八秘制小汉堡🍔,既实惠,还管饱,臭豆腐,腐乳,加柠檬,你看这🍔做的行不行。', //签名
             regist:new Date(), //注册时间
             name:'带带大师兄', //名称
@@ -178,7 +194,7 @@ export default {
             ispwd:false, //是否需要密码
             pickerVisible: false,
             pickData: [tdata],
-            option: {}, //日期选择器配置
+            option: {}, //图片选择设置
             popup:false
         }
     },

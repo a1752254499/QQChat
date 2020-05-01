@@ -15,6 +15,7 @@ body{
     margin:0;
     padding:0;
     background:#F5F6FA;
+    -webkit-tap-highlight-color: transparent;
 }
 #app{
     padding-top:var(--status-bar-height);

@@ -12,18 +12,21 @@
                     <p class="online">在线</p>
                 </div>
                 <div class="means">
-                    <a href="./means.html">
+                    <router-link tag="a" to="/means/1">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
         <div class="main">
             <p class="time">下午3:36</p>
             <div :class="items.name" v-for="(items,i) in chats" :key="i">
-                <img class="icon" :src="items.icon" width="48" height="48">
-                <p class="comment">
+                <img class="icon" :src="items.icon" width="40" height="40">
+                <p class="comment" v-if="items.commentType == 0" v-html="items.comment">
                     {{items.comment}}
+                </p>
+                <p class="comment-img" v-if="items.commentType == 1">
+                    <img :src="items.comment">
                 </p>
             </div>
             <div id="gundong"></div>
@@ -37,9 +40,27 @@
                     </button>
                 </form>
             </div>
+            <div class="icon-container">
+                <div class="voice">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                </div>
+                <div class="image">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </div>
+                <div class="camera">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                </div>
+                <div class="map">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </div>
+                <div class="emoji">
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
 
 <script>
 export default {
@@ -50,56 +71,71 @@ export default {
     },
     data(){
         return{
-             
             name:"me",
-            icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751897567&di=728aeebdb63ad27cd1bcb437f6ca8077&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201309%2F26%2F20130926095128_SiPMh.thumb.700_0.jpeg",
+            icon:"/static/images/9.jpg",
             comment:'',
+            commentType:1,
             date:'',
             chats:[
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"me",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751897567&di=728aeebdb63ad27cd1bcb437f6ca8077&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201309%2F26%2F20130926095128_SiPMh.thumb.700_0.jpeg",
-                    comment:'傻逼东西👴笑了'
+                    icon:"/static/images/9.jpg",
+                    comment:'傻逼东西👴笑了',
+                    commentType:0,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'/static/images/3.jpg',
+                    commentType:1,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"he",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751947860&di=19de192058f22e2ac0d056f1d933c3cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F7%2F2018127203650_KvXLM.thumb.700_0.jpeg",
-                    comment:'你是不是脑子有问题'
+                    icon:"/static/images/10.jpg",
+                    comment:'你是不是脑子有问题',
+                    commentType:0,
                 },
                 {
                     name:"me",
-                    icon:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587751897567&di=728aeebdb63ad27cd1bcb437f6ca8077&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201309%2F26%2F20130926095128_SiPMh.thumb.700_0.jpeg",
-                    comment:'傻逼东西👴笑了'
+                    icon:"/static/images/9.jpg",
+                    comment:'傻逼东西👴笑了',
+                    commentType:0,
+                },
+                {
+                    name:"me",
+                    icon:"/static/images/9.jpg",
+                    comment:'/static/images/img1.jpg',
+                    commentType:1,
                 },
                 
             ]
@@ -112,12 +148,16 @@ export default {
             chat.name = this.name;
             chat.icon = this.icon;
             chat.comment = this.comment;
+            chat.commentType = this.commentType;
             this.chats.push(chat);
             this.comment = '';
-            this.$nextTick(()=>{
-                let gd = document.getElementById('gundong')
-                gd.scrollIntoView()
-            })
+            setTimeout(
+                this.$nextTick(()=>{
+                    let gd = document.getElementById('gundong')
+                    gd.scrollIntoView()
+                }),200
+            )
+            
         },
         back:function(){
             this.$router.go(-1);

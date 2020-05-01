@@ -3,7 +3,7 @@
         <div class="search">
             <!-- <i class="fa fa-search" aria-hidden="true"></i>
             <input type="text" placeholder="搜索" @click.prevent="Search()"> -->
-            <p @click.prevent="Search()"><i class="fa fa-search" aria-hidden="true"></i>搜索</p>
+            <router-link tag="p" to="/search"><i class="fa fa-search" aria-hidden="true"></i>搜索</router-link>
         </div>
         
     </div>
@@ -17,9 +17,7 @@ export default {
         }
     },
     methods:{
-        Search:function(){
-            this.$router.push({ path:'/search'})
-        }
+        
     }
 }
 </script>

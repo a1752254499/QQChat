@@ -1,12 +1,13 @@
 <template>
     <div id="link" class="main">
         <div class="search">
-            <p @click.prevent="Search()"><i class="fa fa-search" aria-hidden="true"></i>搜索</p>
+            <router-link tag="p" to="/search"><i class="fa fa-search" aria-hidden="true"></i>搜索</router-link>
         </div>
-        <div class="friends">
+        <router-link tag="div" to="/apply" class="friends">
             <span class="flex-1">新朋友</span>
+            <span class="apply">1</span>
             <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </div>
+        </router-link>
         <div class="carve"></div>
         <div class="nav">
             <div class="nav-item" :class="{active:active == i}" v-for="(items,i) in list" :key="i" @click="$refs.list.$swiper.slideTo(i)">
@@ -47,14 +48,14 @@
             </swiper-slide>
             <swiper-slide>
                 <div class="mygroup">
-                    <div class="group" v-for="n in 2" :key="n">
+                    <router-link tag="div" to="/groupdetails" class="group" v-for="n in 2" :key="n">
                         <div class="left">
                             <img src="../assets/images/9.jpg" width="40px" height="40px">
                         </div>
                         <div class="right">
                             <h3>聊天群</h3>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </swiper-slide>
         </swiper>
@@ -70,9 +71,7 @@ export default {
         }
     },
     methods:{
-        Search:function(){
-            this.$router.push({ path:'/search'})
-        }
+        
     }
 }
 </script>
