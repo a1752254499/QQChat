@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="main">
+        <div class="main" :class="{pd:this.audio}">
             <p class="time">下午3:36</p>
             <div :class="items.name" v-for="(items,i) in chats" :key="i">
                 <img class="icon" :src="items.icon" width="40" height="40">
@@ -28,20 +28,23 @@
                 <p class="comment-img" v-if="items.commentType === 1">
                     <img :src="items.comment">
                 </p>
+                <div class="comment-audio" v-if="items.commentType === 2">
+                    <audio :src="items.comment" controls></audio>
+                </div>
             </div>
-            <div id="gundong"></div>
+            <div ref="gd"></div>
         </div>
         <div class="footer">
             <div class="send-container">
                 <form>
                     <input type="text" v-model="comment">
-                    <button @click.prevent="handle">
+                    <button @click="handle" @submit.prevent>
                         发送
                     </button>
                 </form>
             </div>
             <div class="icon-container">
-                <div class="voice">
+                <div class="voice" @click="isAudio">
                     <i class="fa fa-microphone" aria-hidden="true"></i>
                 </div>
                 <div class="image">
@@ -57,6 +60,16 @@
                     <i class="fa fa-smile-o" aria-hidden="true"></i>
                 </div>
             </div>
+            <vue-dictaphone v-if="audio" class="audio" @stop="handleRecording($event)" 
+                v-slot="{ isRecording, startRecording, stopRecording }">
+                <a class="click" v-if="!isRecording" @click.prevent="startRecording">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                </a>
+                <a class="release" v-else @click.prevent="stopRecording">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                </a>
+            </vue-dictaphone>
+            <!-- <audio :src="audioSource" controls></audio> -->
         </div>
     </div>
 </template>
@@ -74,7 +87,8 @@ export default {
             name:"me",
             icon:"/static/images/9.jpg",
             comment:'',
-            commentType:1,
+            commentType:2,
+            audio:false,
             date:'',
             chats:[
                 {
@@ -142,35 +156,44 @@ export default {
         }
     },
     methods:{
-        //新消息默认底部
-        handle:function(){
-            var chat = {};
-            chat.name = this.name;
-            chat.icon = this.icon;
-            chat.comment = this.comment;
-            chat.commentType = this.commentType;
-            this.chats.push(chat);
-            this.comment = '';
+        bottom:function(){
             setTimeout(
                 this.$nextTick(()=>{
-                    let gd = document.getElementById('gundong')
-                    gd.scrollIntoView()
+                    this.$refs.gd.scrollIntoView()
                 }),200
             )
-            
+        },
+        //新消息默认底部
+        handle:function(){
+            var chat = {
+                name:this.name,
+                icon:this.icon,
+                comment:this.comment,
+                commentType:this.commentType,
+            };
+            this.chats.push(chat);
+            this.comment = '';
+            this.bottom()
         },
         back:function(){
             this.$router.go(-1);
         },
+        handleRecording({ blob, src }) {
+            this.comment = src;
+            this.handle()
+        },
+        isAudio:function(){
+            if(this.audio){
+                this.audio = false
+            }else{
+                this.audio = true
+                this.bottom()
+            }
+        },
     },
     //进消息刷新到底部
     mounted(){
-        setTimeout(
-            this.$nextTick(()=>{
-                let gd = document.getElementById('gundong')
-                gd.scrollIntoView()
-            }),100
-        )
+        this.bottom()
     },
     updated(){
         

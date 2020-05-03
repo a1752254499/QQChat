@@ -16,7 +16,7 @@
                     </router-link>
                     <div class="mid">
                         <p class="name" v-html="items.name"></p>
-                        <p class="email" v-html="'Char:'+items.char"></p>
+                        <p class="email" v-html="'Chat:'+items.chat"></p>
                     </div>
                     <div class="right">
                         <span class="send" v-if="items.tip==1">发消息</span>
@@ -73,11 +73,11 @@ export default {
             let exp = eval("/"+e+"/g")
             arr.forEach(v=>{
                 let isName = v.name.indexOf(e)
-                let isChar = v.char.indexOf(e)
-                if(parseInt(isName) !== -1 || parseInt(isChar) !== -1){
+                let isChat = v.char.indexOf(e)
+                if(parseInt(isName) !== -1 || parseInt(isChat) !== -1){
                     this.isFriend(v)
                     v.name = v.name.replace(exp,"<span style='color:#3EBBE6;'>"+e+"</span>")
-                    v.char = v.char.replace(exp,"<span style='color:#3EBBE6;'>"+e+"</span>")
+                    v.chat = v.chat.replace(exp,"<span style='color:#3EBBE6;'>"+e+"</span>")
                     this.userarr.push(v)
                 }
             })

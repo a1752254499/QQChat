@@ -12,11 +12,15 @@
   "dependencies": {
     "axios": "^0.19.2",
     "luxon": "^1.23.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "swiper": "^5.3.8",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^4.1.1",
     "vue-cropper-h5": "^1.2.0",
     "vue-datetime": "^1.0.0-beta.11",
+    "vue-dictaphone": "^2.0.0",
     "vue-pickers": "^2.4.1",
     "vue-router": "^3.0.1",
     "weekstart": "^1.0.1"

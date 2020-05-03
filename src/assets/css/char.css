@@ -59,6 +59,9 @@ a,a:hover{
     padding:66px 10px 75px 10px;
     background:#ebedf5;
 }
+#char .pd{
+    padding-bottom:195px;
+}
 #char .main .time{
     color:#989ba8;
     text-align:center;
@@ -116,6 +119,14 @@ a,a:hover{
     max-width:150px;
     max-height:150px;
 }
+#char .main .he .comment-audio{
+    margin-right:50px;
+}
+#char .main .he .comment-audio audio{
+    width:100px;
+    height:40px;
+    outline:none;
+}
 #char .main .me{
     display: flex;
 }
@@ -161,6 +172,14 @@ a,a:hover{
     border-radius:10px;
     max-width:150px;
     max-height:150px;
+}
+#char .main .me .comment-audio{
+    margin-right:50px;
+}
+#char .main .me .comment-audio audio{
+    width:100px;
+    height:40px;
+    outline:none;
 }
 #char .footer{
     width:100%;
@@ -211,4 +230,31 @@ a,a:hover{
 #char .footer .icon-container .map i,
 #char .footer .icon-container .emoji i{
     font-size:24px;
+}
+#char .audio{
+    height:120px;
+    line-height:120px;
+    background:#fff;
+    text-align: center;
+}
+#char .audio a{
+    display:inline-block;
+    line-height:60px;
+    width:60px;
+    height:60px;
+    color:#fff;
+    border-radius:100%;
+    font-size:26px;
+}
+#char .audio .click{
+    background:#00d7ff;
+}
+#char .audio .release{
+    background:#DC143C;
+    animation: audio 0.5s linear 0.5s infinite alternate;
+}
+
+@keyframes audio{
+    0%{width:70px;height:70px;line-height:70px;}
+    100%{width:60px;height:60px;line-height: 60px;}
 }

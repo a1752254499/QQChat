@@ -29,7 +29,8 @@
                         <span>群成员</span>
                     </div>
                     <div class="right">
-                        <span @click.prevent="Manage">成员管理<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span @click.prevent="Manage" v-if="del === false">成员管理<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span class="complete" v-if="del" @click.prevent="Manage">完成</span>
                     </div>
                 </div>
                 <div class="center">
@@ -83,7 +84,7 @@
             </div>
             <div class="footer">
                 <a style="display:none;" href="">退出群聊</a>
-                <a href="">解散群聊</a>
+                <a @click.prevent="isOut">解散群聊</a>
             </div>
             <transition class="fade" name="fade">
                 <div class="sign-modify" v-if="popup">
@@ -103,6 +104,19 @@
                     </div>
                 </div>
             </transition>
+            <transition class="kade" name="kade">
+                <div class="sign-out" v-if="out">
+                    <div class="out-container">
+                        <h3>提示</h3>
+                        <p>确定解散该群？</p>
+                        <div class="btn">
+                            <a href="">确定</a>
+                            <div class="zw"></div>
+                            <a @click.prevent="isOut">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -116,6 +130,7 @@ export default {
             modifyTitle:'',
             data:'修改内容',
             popup:false,
+            out:false,
             del:false,
             delData:'',
             groupAvatar:'/static/images/10.jpg',
@@ -204,6 +219,13 @@ export default {
         },
         delUser:function(e){
             this.groupMember.splice(e,1)
+        },
+        isOut:function(){
+            if(this.out){
+                this.out = false
+            }else{
+                this.out = true
+            }
         }
     }
 }

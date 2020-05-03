@@ -50,8 +50,8 @@ const router = new VueRouter({
             props:true
         },
         {
-            path:'/serach',
-            name:'serach',
+            path:'/search',
+            name:'search',
             component:Search
         },
         {

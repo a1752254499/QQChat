@@ -1,7 +1,6 @@
-# qqchat
+# QQChat
 
-> A Vue.js project
-
+> 仿QQ即时在线通讯
 ## Build Setup
 
 ``` bash

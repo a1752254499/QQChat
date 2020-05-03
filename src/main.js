@@ -20,6 +20,11 @@ Vue.use(H5Cropper)
 import http from "./http"
 Vue.prototype.$http = http;
 
+import VueDictaphone from "vue-dictaphone";
+Vue.use(VueDictaphone);
+
+
+
 router.afterEach((to,from,next) => {
     window.scrollTo(0,0);
 })
