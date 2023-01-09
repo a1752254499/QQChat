@@ -3906,10 +3906,10 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-luxon@^1.23.0:
-  version "1.23.0"
-  resolved "https://registry.npm.taobao.org/luxon/download/luxon-1.23.0.tgz#23b748ad0f2d5494dc4d2878c19278c1e651410c"
-  integrity sha1-I7dIrQ8tVJTcTSh4wZJ4weZRQQw=
+luxon@^1.28.1:
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.1.tgz#528cdf3624a54506d710290a2341aa8e6e6c61b0"
+  integrity sha512-gYHAa180mKrNIUJCbwpmD0aTu9kV0dREDrwNnuyFAsO1Wt0EVYSZelPnJlbj9HplzXX/YWXHFTL45kvZ53M0pw==
 
 make-dir@^1.0.0:
   version "1.3.0"
@@ -6908,15 +6908,6 @@ vue-loader@^13.3.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-mobile-audio@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npm.taobao.org/vue-mobile-audio/download/vue-mobile-audio-0.1.3.tgz#2d3ad5d78520579442fc9673a730faf00a311896"
-  integrity sha1-LTrV14UgV5RC/JZzpzD68AoxGJY=
-  dependencies:
-    vue "^2.5.17"
-    vue-router "^3.0.1"
-    vuex "^3.0.1"
-
 vue-pickers@^2.4.1:
   version "2.4.1"
   resolved "https://registry.npm.taobao.org/vue-pickers/download/vue-pickers-2.4.1.tgz#aad94f29b74ba4034fa89be04503c403db6d21bc"
@@ -6948,15 +6939,10 @@ vue-template-es2015-compiler@^1.6.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue@^2.5.17, vue@^2.5.2, vue@^2.6.11:
+vue@^2.5.2, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.11.tgz?cache=0&sync_timestamp=1588279848618&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha1-dllNh31LEiNEBuhONSdcbVFBJcU=
-
-vuex@^3.0.1:
-  version "3.3.0"
-  resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.3.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuex%2Fdownload%2Fvuex-3.3.0.tgz#665b4630ea1347317139fcc5cb495aab3ec5e513"
-  integrity sha1-ZltGMOoTRzFxOfzFy0laqz7F5RM=
 
 watchpack@^1.4.0:
   version "1.6.1"
